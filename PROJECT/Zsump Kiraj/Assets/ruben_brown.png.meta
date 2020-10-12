@@ -1,0 +1,420 @@
+fileFormatVersion: 2
+guid: 308f5259a2f0e7549a855e79aa0e8162
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5196916640391234093
+    second: ruben_brown_0
+  - first:
+      213: 7096676180322076192
+    second: ruben_brown_1
+  - first:
+      213: 5239122400957340217
+    second: ruben_brown_2
+  - first:
+      213: 5824169101713817130
+    second: ruben_brown_3
+  - first:
+      213: 1675808676945088237
+    second: ruben_brown_4
+  - first:
+      213: 3992698948299184767
+    second: ruben_brown_5
+  - first:
+      213: 368128766341035194
+    second: ruben_brown_6
+  - first:
+      213: -3422463592512926132
+    second: ruben_brown_7
+  - first:
+      213: 3666367144280504795
+    second: ruben_brown_8
+  - first:
+      213: -6400115987520840381
+    second: ruben_brown_9
+  - first:
+      213: 2978248685750810019
+    second: ruben_brown_10
+  - first:
+      213: -6159026255001870303
+    second: ruben_brown_11
+  - first:
+      213: -6503612502954612604
+    second: ruben_brown_12
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ruben_brown_0
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 3870
+        width: 773
+        height: 995
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2206d566282f1840800000000000000
+      internalID: 5196916640391234093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruben_brown_1
+      rect:
+        serializedVersion: 2
+        x: 1502
+        y: 3870
+        width: 773
+        height: 995
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 026c21ed2657c7260800000000000000
+      internalID: 7096676180322076192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruben_brown_2
+      rect:
+        serializedVersion: 2
+        x: 2782
+        y: 3870
+        width: 773
+        height: 995
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a9adbc01a15b840800000000000000
+      internalID: 5239122400957340217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruben_brown_3
+      rect:
+        serializedVersion: 2
+        x: 4062
+        y: 3870
+        width: 773
+        height: 995
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2e3573b0fa93d050800000000000000
+      internalID: 5824169101713817130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruben_brown_4
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 2590
+        width: 900
+        height: 995
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dee44d4ec1ba14710800000000000000
+      internalID: 1675808676945088237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruben_brown_5
+      rect:
+        serializedVersion: 2
+        x: 1565
+        y: 2590
+        width: 837
+        height: 1027
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7ad27c0a8ae86730800000000000000
+      internalID: 3992698948299184767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruben_brown_6
+      rect:
+        serializedVersion: 2
+        x: 2815
+        y: 2590
+        width: 867
+        height: 995
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab43c5d992bdb1500800000000000000
+      internalID: 368128766341035194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruben_brown_7
+      rect:
+        serializedVersion: 2
+        x: 4125
+        y: 2590
+        width: 837
+        height: 1027
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4e4f8fde77f080d0800000000000000
+      internalID: -3422463592512926132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruben_brown_8
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 1310
+        width: 900
+        height: 612
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd9b0031e7d81e230800000000000000
+      internalID: 3666367144280504795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruben_brown_9
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 1310
+        width: 995
+        height: 1155
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d958a2b683e27a0800000000000000
+      internalID: -6400115987520840381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruben_brown_10
+      rect:
+        serializedVersion: 2
+        x: 2685
+        y: 1375
+        width: 1030
+        height: 1090
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a573f6766dd45920800000000000000
+      internalID: 2978248685750810019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruben_brown_11
+      rect:
+        serializedVersion: 2
+        x: 3965
+        y: 1375
+        width: 870
+        height: 1090
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1202f44c04eb68aa0800000000000000
+      internalID: -6159026255001870303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruben_brown_12
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 30
+        width: 1122
+        height: 325
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 488e99cd2e68eb5a0800000000000000
+      internalID: -6503612502954612604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
