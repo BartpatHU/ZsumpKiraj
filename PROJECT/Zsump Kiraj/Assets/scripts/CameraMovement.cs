@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public GameObject follow; // game object to follow
+    public GameObject follow; // Az objektum amit a kamera követ (tehát a karakter)
 
     private Camera m_camera;
-    private float m_verticalUnits; // number of vertical units the camera can see
+    private float m_verticalUnits; // függõleges egységek száma amit a kamera érzékel
 
     void Start()
     {
