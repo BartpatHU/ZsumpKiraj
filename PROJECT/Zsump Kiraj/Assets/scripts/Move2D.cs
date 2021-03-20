@@ -11,10 +11,12 @@ public class Move2D : MonoBehaviour
     //sétáláshoz szükséges változók
 
     public float walkSpeed = 5f;
-    private float currSpeed = 4f;
-    private float moveInput;
-    Vector2 movement, movementOrder;
+    public float currSpeed = 4f;
+    public float moveInput;
+    public Vector2 movement, movementOrder;
     public bool moveLeft = false, moveRight = false;
+
+    public bool LEFUT = false;
 
     // ugráshoz szükséges dolgok
 
@@ -23,7 +25,7 @@ public class Move2D : MonoBehaviour
 
     //a talaj detektálásához szükséges változók
 
-    public bool isGrounded;
+    public bool isGrounded, isGrounded2;
     public bool isIcy;
     public bool isSticky;
     public bool is45;
@@ -35,8 +37,12 @@ public class Move2D : MonoBehaviour
     //segédváltozók
 
     public float lastPosY;
+    public float lastPosX;
     public float currPosY;
     public float maxHeightWithoutBang = 11;
+
+    public bool left;
+    public bool right;
 
 
     public float XVELOCITY;
@@ -88,45 +94,63 @@ public class Move2D : MonoBehaviour
 
     }
 
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+        transform.position = position;
+    }
 
     void StuckCharacter()
-    {/*
+    {
         if(!isGrounded && rb.velocity.x == 0 && rb.velocity.y == 0)
         {
-            rb.velocity = new Vector2(0.1f, 0);
-        }*/
+            animator.SetBool("Grounded", true);
+        }
     }
 
     // ez a függvény megnézi hogy a földön van-e a karakter
 
     void GroundCheck()
     {
-        isGrounded = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.04f), new Vector2(0.80f, 0.05f), 0f, groundMask);
+        isGrounded = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.04f), new Vector2(0.8f, 0.05f), 0f, groundMask);
         animator.SetBool("Grounded", isGrounded);
+
+        if (isGrounded && !isGrounded2)
+        {
+            audioSource.clip = LandAudio;
+            audioSource.Play();
+        }
+
+        isGrounded2 = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.04f), new Vector2(0.8f, 0.05f), 0f, groundMask);
+
     }
 
     //ez a függvény megnézi hogy jeges földön van-e a karakter
 
     void IcyCheck()
     {
-        isIcy = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.04f), new Vector2(0.80f, 0.05f), 0f, icyMask);
+        isIcy = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.04f), new Vector2(0.8f, 0.05f), 0f, icyMask);
     }
 
     //ez a függvény megnézi, hogy ragadós földön van-e a karakter
 
     void StickyCheck()
     {
-        isSticky = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.04f), new Vector2(0.80f, 0.05f), 0f, stickyMask);
+        isSticky = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.04f), new Vector2(0.8f, 0.05f), 0f, stickyMask);
     }
 
     //ez a függvény megnézi, hogy 45-fokos földön van-e a karakter
 
     void FourtyFiveCheck()
     {
-        bool left = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x - 0.47f, gameObject.transform.position.y - 0.04f), new Vector2(0.05f, 0.05f), 0f, fourtyFiveMask);
-        bool right = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x + 0.47f, gameObject.transform.position.y - 0.04f), new Vector2(0.05f, 0.05f), 0f, fourtyFiveMask);
+        bool left45 = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x - 0.47f, gameObject.transform.position.y - 0.04f), new Vector2(0.05f, 0.05f), 0f, fourtyFiveMask);
+        bool right45 = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x + 0.47f, gameObject.transform.position.y - 0.04f), new Vector2(0.05f, 0.05f), 0f, fourtyFiveMask);
 
-        if(right || left)
+        if(right45 || left45)
         {
             is45 = true;
             rb.sharedMaterial = normalMat;
@@ -142,12 +166,14 @@ public class Move2D : MonoBehaviour
 
     void BounceCheck()
     {
-        bool left = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x - 0.45f, gameObject.transform.position.y + 0.57f), new Vector2(0.03f, 1.12f), 0f, groundMask);
-        bool right = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x + 0.45f, gameObject.transform.position.y + 0.57f), new Vector2(0.03f, 1.12f), 0f, groundMask);
+        left = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x - 0.45f, gameObject.transform.position.y + 0.57f), new Vector2(0.03f, 1.12f), 0f, groundMask);
+        right = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x + 0.45f, gameObject.transform.position.y + 0.57f), new Vector2(0.03f, 1.12f), 0f, groundMask);
 
-        if(right || left && !isGrounded)
+        if((right || left) && !isGrounded && rb.velocity.x != 0)
         {
             animator.SetBool("Bounced", true);
+            audioSource.clip = BounceAudio;
+            audioSource.Play();
         }
 
         if (isGrounded)
@@ -220,34 +246,44 @@ public class Move2D : MonoBehaviour
         }
 
 
-        if (jumpValue == 0.0f && isGrounded && isIcy && !isSticky)
+        if (isGrounded && isIcy && !isSticky)
         {
 
-            if (moveLeft && !moveRight)
+            if (jumpValue == 0f)
             {
-                movementOrder.x = -walkSpeed-2;
-            }
-            else if (moveRight && !moveLeft)
-            {
-                movementOrder.x = walkSpeed+2;
-            }
-            else if (moveLeft && moveRight)
-            {
-                movementOrder.x = 0;
+                if (moveLeft && !moveRight)
+                {
+                    movementOrder.x = -walkSpeed - 2;
+                }
+                else if (moveRight && !moveLeft)
+                {
+                    movementOrder.x = walkSpeed + 2;
+                }
+
+
+                if (moveLeft && movement.x > movementOrder.x)
+                {
+                    movement.x -= currSpeed * Time.fixedDeltaTime;
+                }
+                if (moveRight && movement.x < movementOrder.x)
+                {
+                    movement.x += currSpeed * Time.fixedDeltaTime;
+                }
             }
 
 
-            if(moveLeft && movement.x > movementOrder.x)
-            {
-                movement.x -= currSpeed * Time.fixedDeltaTime;
-            }
-            if(moveRight && movement.x < movementOrder.x)
-            {
-                movement.x += currSpeed * Time.fixedDeltaTime;
-            }
-
+            
             movement.y = rb.velocity.y;
             rb.velocity = movement;
+
+           if((left || right) && !(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) && XVELOCITY == 0)
+            {
+                LEFUT = true;
+                movement.x = 0f;
+            } else
+            {
+                LEFUT = false;
+            }
         }
 
 
@@ -295,11 +331,16 @@ public class Move2D : MonoBehaviour
         if (lastPosY - currPosY > maxHeightWithoutBang)
         {
             animator.SetBool("Bang", true);
+            if (isGrounded)
+            {
+                audioSource.clip = BangAudio;
+                audioSource.Play();
+            }
         }
 
         //a player materialjanak állítása, aszerint hogy a földön van-e (így pattan vissza a falról, amikor éppen ugrást végez) 
 
-        if(!isGrounded && !is45)
+        if(!isGrounded && !is45 && rb.velocity.y!=0f)
         {
             rb.sharedMaterial = bounceMat;
         } 
@@ -327,7 +368,6 @@ public class Move2D : MonoBehaviour
             if (!isIcy)
             {
                 rb.velocity = new Vector2(0.0f,0.0f);
-
             }
 
         }
@@ -336,11 +376,21 @@ public class Move2D : MonoBehaviour
 
         if (jumpValue >= 25f && isGrounded)
         {
+            audioSource.clip = JumpAudio;
+            audioSource.Play();
+
             rb.sharedMaterial = bounceMat;
             animator.SetBool("Charging", false);
             float tempx = moveInput;
             float tempy = jumpValue;
-            rb.velocity = new Vector2((tempx==0?0:(tempx>0?tempx+5:tempx-5)), tempy);
+            if (!isIcy)
+            {
+                rb.velocity = new Vector2((tempx == 0 ? 0: (tempx > 0 ? tempx + 5: tempx - 5)), tempy);
+            }
+            else
+            {
+                rb.velocity = new Vector2((tempx == 0 ? 0 + rb.velocity.x : (tempx > 0 ? tempx + 5 + rb.velocity.x : tempx - 5 + rb.velocity.x)), tempy);
+            }
             Invoke("ResetJump", 0.2f);
         }
 
@@ -353,12 +403,25 @@ public class Move2D : MonoBehaviour
         // ha elengedjük a space-t mielõtt a maximumra növekedne az ugrási sebesség, akkor a jumpValue aktuális értékével ugrik el
         if (Input.GetKeyUp("space"))
         {
+
+            float tempx = moveInput;
+            float tempy = jumpValue;
+
             canJump = true;
             animator.SetBool("Charging", false);
             rb.sharedMaterial = bounceMat;
             if (isGrounded)
             {
-                rb.velocity = new Vector2((moveInput==0?0:(moveInput>0?moveInput+5:moveInput-5)), jumpValue);
+                audioSource.clip = JumpAudio;
+                audioSource.Play();
+                if (!isIcy)
+                {
+                    rb.velocity = new Vector2((tempx == 0 ? 0 : (tempx > 0 ? tempx + 5 : tempx - 5)), tempy);
+                }
+                else
+                {
+                    rb.velocity = new Vector2((tempx == 0 ? 0 + rb.velocity.x : (tempx > 0 ? tempx + 5 + rb.velocity.x : tempx - 5 + rb.velocity.x)), tempy);
+                }
                 animator.SetBool("Charging", false);
             }
 
@@ -386,21 +449,13 @@ public class Move2D : MonoBehaviour
     //ez a függvény játsza a karakter hangjait
 
     void AudioManager()
-    {/*
-        bool bounced = animator.GetBool("Bounced");
-        bool grounded = animator.GetBool("Grounded");
-        bool bang = animator.GetBool("Bang");
+    {
 
-        if(bang && grounded)
-        {
-            audioSource.clip = BangAudio;
-            audioSource.Play();
-        }*/
     }
 
         //ezzel a függvénnyel vizualizálom, hogy hol vannak a Ground/Sticky/Icy/Bounce-Check föld/fal detektálást segítõ láthatatlan síkodomjai
 
-        void OnDrawGizmosSelected()
+    void OnDrawGizmosSelected()
     {
 
         //groundcheck
